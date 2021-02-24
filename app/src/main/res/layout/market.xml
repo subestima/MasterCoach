@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:background="#ffffff"
+    >
+
+    <RelativeLayout
+        android:id="@+id/MaketTopLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".8">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_margin="5sp"
+            >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="60sp"
+                android:layout_height="match_parent"
+                app:srcCompat="@mipmap/bank_icon_foreground"
+                android:layout_gravity="bottom"
+                android:background="#fff"
+                />
+
+            <TextView
+                android:id="@+id/HeaderMarketTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textColor="#006400"
+                android:textSize="20sp"
+                android:layout_margin="5sp"
+                android:text="5,0000 $"
+                />
+        </TableRow>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/MaketMidLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight=".2">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchHeader"
+            android:layout_marginTop="10sp"
+            >
+
+            <TextView
+                android:id="@+id/SearchPlayerHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000"
+                android:textColor="#fff"
+                android:textAlignment="center"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:text="SEARCH BY NAME"
+                android:gravity="center_horizontal"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/searchTableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="20sp"
+            android:layout_below="@+id/searchHeader"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/searchNameIV"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                app:srcCompat="@mipmap/search_icon_foreground"
+                android:background="#fff"
+                android:layout_margin="2sp"
+                />
+
+            <EditText
+                android:id="@+id/playerSearchET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:layout_marginStart="10sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginBottom="10sp"
+                android:ems="10"
+                android:textSize="12sp"
+                android:hint="Enter player name" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/detailedSearchHeaderTR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchTableRow"
+            android:layout_marginTop="10sp"
+            >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000"
+                android:textSize="10sp"
+                android:textColor="#fff"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="DETAILED SEARCH"
+                android:gravity="center_horizontal"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/positionSelectTR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detailedSearchHeaderTR"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginBottom="10sp"
+            android:layout_marginTop="15sp"
+            >
+
+            <TextView
+                android:id="@+id/positionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                android:background="#000"
+                android:textColor="#fff"
+                android:text=" POSITION "
+                android:layout_margin="5sp"
+                />
+
+            <RadioGroup
+                android:id="@+id/positionSelectRG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:textSize="12sp"
+                    android:text="CB"
+                    android:layout_marginEnd="10sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginRight="10sp"
+                    android:text="MF"
+                    android:layout_marginEnd="10sp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:text="CF"
+                    android:layout_marginEnd="10sp" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/ageSelectionTR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/positionSelectTR"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginBottom="10sp"
+            >
+
+            <TextView
+                android:id="@+id/ageTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                android:background="#000"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:text=" AGE "
+                android:layout_margin="5sp"
+                />
+
+            <EditText
+                android:id="@+id/lowerLimitAgeET"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:ems="10"
+                android:layout_marginLeft="10sp"
+                android:textSize="12sp"
+                android:hint="16"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:inputType="date"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="10sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:text=" - " />
+
+            <EditText
+                android:id="@+id/upperAgeLimitET"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:ems="10"
+                android:hint="33"
+                android:textSize="12sp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:inputType="date"
+                android:gravity="center_horizontal" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/OvrllSelectionTR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ageSelectionTR"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginBottom="10sp"
+            >
+
+            <TextView
+                android:id="@+id/ovrllTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                android:background="#000"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                android:text=" OVERALL "
+                android:layout_margin="5sp"
+                />
+
+            <EditText
+                android:id="@+id/lowerLimitOvrllET"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:ems="10"
+                android:layout_marginLeft="10sp"
+                android:hint="20"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:inputType="date"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:text=" - " />
+
+            <EditText
+                android:id="@+id/upperOvrllLimitET"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:ems="10"
+                android:hint="99"
+                android:textSize="12sp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:inputType="date"
+                android:gravity="center_horizontal" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/priceSelectionTR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/OvrllSelectionTR"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginBottom="10sp"
+            >
+
+            <TextView
+                android:id="@+id/priceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                android:background="#000"
+                android:textSize="12sp"
+                android:textColor="#fff"
+                android:text=" PRICE "
+                android:layout_margin="5sp"
+                />
+
+            <EditText
+                android:id="@+id/lowerLimitPriceET"
+                android:layout_width="100sp"
+                android:layout_height="40sp"
+                android:ems="10"
+                android:layout_marginLeft="10sp"
+                android:hint="0.00 $"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:inputType="date"
+                android:textColor="#000"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_gravity="center_vertical"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:text=" - " />
+
+            <EditText
+                android:id="@+id/upperPriceLimitET"
+                android:layout_width="100sp"
+                android:layout_height="40sp"
+                android:ems="10"
+                android:hint="14,000.00 $"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:inputType="date"
+                android:textColor="#000"
+                android:gravity="center_horizontal" />
+
+        </TableRow>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/MaketButtonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".8">
+
+        <Button
+            android:id="@+id/applySearchBttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10sp"
+            android:text="@string/search"
+            android:textSize="12sp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

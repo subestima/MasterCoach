@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:background="#ffffff"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10sp"
+        android:layout_weight="0.6"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10sp"
+        android:layout_weight="0.2"
+        >
+
+
+        <TableRow
+            android:id="@+id/ageTR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/usernameTR"
+            >
+
+            <ImageView
+                android:id="@+id/calendarIconIV"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="center"
+                app:srcCompat="@mipmap/calendar_icon_foreground" />
+
+            <EditText
+                android:id="@+id/birthEdtText"
+                android:layout_width="70sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginBottom="10sp"
+                android:textSize="12sp"
+                android:ems="10"
+                android:hint="Age"
+                android:inputType="date" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/usernameTR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
+
+            <ImageView
+                android:id="@+id/userIconIV"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="center"
+                app:srcCompat="@mipmap/user_icon_foreground" />
+
+            <EditText
+                android:id="@+id/userName_id"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:layout_marginStart="10sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginRight="10sp"
+                android:textSize="12sp"
+                android:layout_marginBottom="10sp"
+                android:ems="10"
+                android:hint="Username" />
+        </TableRow>
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:layout_marginTop="25sp"
+            android:layout_below="@id/ageTR"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        >
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="1sp"
+                                android:background="#000000"
+                                >
+
+                                <TextView
+                                    android:id="@+id/textView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Válega"
+                                    android:textStyle="bold"
+                                    android:textColor="#ffffff" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="3sp"
+                                android:background="#ffffff"
+                                >
+
+
+                                <ImageView
+                                    android:id="@+id/team1icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/valegaicon_foreground" />
+
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:layout_marginLeft="3sp"
+                        android:layout_marginStart="3sp">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="1sp"
+                                android:background="#000000"
+                                >
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Ovarense"
+                                    android:textStyle="bold"
+                                    android:textColor="#ffffff" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="3sp"
+                                android:textColor="#ffffff"
+                                >
+
+
+                                <ImageView
+                                    android:id="@+id/team2Icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/ovarenseicon_foreground"
+                                    android:background="#ffffff"
+                                    />
+
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:layout_marginLeft="3sp"
+                        android:layout_marginStart="3sp">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="1sp"
+                                android:background="#000000"
+                                >
+
+
+                                <TextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Espinho"
+                                    android:textStyle="bold"
+                                    android:textColor="#ffff" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="3sp"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/team3Icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/espinhoicon_foreground"
+                                    android:background="#fff"
+                                    />
+
+
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:layout_marginLeft="3sp"
+                        android:layout_marginStart="3sp">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="1sp"
+                                android:background="#000000"
+                                >
+
+                                <TextView
+                                    android:id="@+id/textView5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Pardilhó"
+                                    android:textStyle="bold"
+                                    android:textColor="#ffffff" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="3sp"
+                                >
+
+
+                                <ImageView
+                                    android:id="@+id/team4Icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/pardilhoicon_foreground"
+                                    android:background="#ffffff"
+                                    />
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3sp"
+                        >
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#000"
+                            >
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="1sp"
+                                android:background="#000000"
+                                >
+
+                                <TextView
+                                    android:id="@+id/textView6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Esmoriz"
+                                    android:textStyle="bold"
+                                    android:textColor="#ffff" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="3sp"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/team5Icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/esmorizicon_foreground"
+                                    android:background="#fff"
+                                    />
+
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:layout_marginLeft="3sp"
+                        >
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="1sp"
+                                android:background="#000000"
+                                >
+
+                                <TextView
+                                    android:id="@+id/textView7"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Paramos"
+                                    android:textStyle="bold"
+                                    android:textColor="#fff" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3sp"
+                                android:layout_marginTop="1sp"
+                                android:layout_marginRight="3sp"
+                                android:layout_marginBottom="3sp"
+                                >
+
+                                <ImageView
+                                    android:id="@+id/team6Icon"
+                                    android:layout_width="109sp"
+                                    android:layout_height="109sp"
+                                    android:src="@mipmap/paramosicon"
+                                    android:background="#fff"
+                                    />
+
+                            </TableRow>
+
+                        </TableLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        >
+
+        <Button
+            android:id="@+id/cfgButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/Register"
+            android:background="#3CB371"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:layout_margin="10sp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

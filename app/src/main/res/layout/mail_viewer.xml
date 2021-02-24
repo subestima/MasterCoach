@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    >
+
+    <RelativeLayout
+        android:id="@+id/mailRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20sp"
+        >
+
+        <TextView
+            android:id="@+id/msgAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/mailFrom"
+            android:layout_marginTop="10sp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            />
+        <TextView
+            android:id="@+id/msgAuthorTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="textview"
+            android:layout_marginTop="10sp"
+            android:layout_toRightOf="@id/msgAuthor"
+            android:layout_toEndOf="@id/msgAuthor"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:id="@+id/msgSubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/msgAuthorTV"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="10sp"
+            android:text="@string/mailSubject"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:id="@+id/msgSubjectTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/msgAuthorTV"
+            android:layout_marginTop="10sp"
+            android:layout_toRightOf="@id/msgSubject"
+            android:text="textview"
+            android:textColor="#000000"
+            />
+
+        <ScrollView
+            android:id="@+id/msgBodySV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/msgSubjectTV"
+            android:layout_above="@+id/goBackFromMailBttn"
+            android:layout_margin = "10sp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/msgBodyLL"
+                >
+
+                <TextView
+                    android:id="@+id/msgBodyTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="normal"
+                    android:textColor="#000000"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+        <Button
+            android:id="@+id/goBackFromMailBttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10sp"
+            android:layout_centerHorizontal="true"
+            android:textSize="10sp"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:id="@+id/acceptProposalBttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="accept"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10sp"
+            android:layout_alignParentRight="true"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:id="@+id/declineProposalBttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="decline"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10sp"
+            android:layout_alignParentLeft="true"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,40 @@
+<resources>
+
+    <string name="app_name">Master Coach</string>
+    <string  name="Welcome_MSG">Welcome To FootballFantasy</string>
+    <string name="next">NEXT</string>
+    <string name="nomeDoTreinador">Coach Name :</string>
+    <string name="dataDeNascimento">Age :</string>
+    <string name="Club">Starting Club :</string>
+    <string name="back">home</string>
+    <string name="goRankings">Boards</string>
+    <string name="goToMyTeam">Club</string>
+    <string name="goToMarket">Market</string>
+    <string name="goTOSPLB">SEMI-PRO</string>
+    <string name="goTOALB">AMATEUR</string>
+    <string name="goTOPLB">PRO</string>
+    <string name="playNextGame">Play</string>
+    <string name="chsteam1">Válega</string>
+    <string name="chsteam2">Ovarense</string>
+    <string name="chsteam3">Espinho</string>
+    <string name="chsteam4">Pardilhó</string>
+    <string name="chsteam5">Esmoriz</string>
+    <string name="chsteam6">Paramos</string>
+    <string name="MarketPlace">Market</string>
+    <string name="goSearch">Search</string>
+    <string name="searchHeader">Insert player name</string>
+    <string name="Buy">BUY</string>
+    <string name="substitute">SUBSTITUTE</string>
+    <string name="nextGames">CALENDAR</string>
+    <string name="Inbox">INBOX</string>
+    <string name="Register">REGISTER</string>
+    <string name="CreateAccount">NEW GAME</string>
+    <string name="emptyProposalsBox">No offers available</string>
+    <string name="mailFrom">From :</string>
+    <string name="mailSubject">Subject :</string>
+    <string name="save">SAVE</string>
+    <string name="search">SEARCH</string>
+    <string name="finishSim">End</string>
+
+
+</resources>
