@@ -4,7 +4,7 @@
 **Subjects under development**
 
 - Intern database using SQLite
-- 2D simulation using Unity3D or C++ OpenGL ES/Vulkan API
+- 2D simulation using Unity or C++ OpenGL ES/Vulkan API
 - Rest API
 - Change team names and logos.
 
