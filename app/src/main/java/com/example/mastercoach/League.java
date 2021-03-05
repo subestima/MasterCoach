@@ -2,163 +2,27 @@ package com.example.mastercoach;
 
 import android.os.Bundle;
 
-public class League extends Team {
+public class League extends Team
+{
+    // Class data
+
     final public int nTeams = 18;
     final public int nLeagueTeams = 6;
 
     public int gamesPlayed;
+
     public Team[] league;
+
     public String[][] Score;
+
     public String LeagueName;
 
-    public int getNTeams() {return this.nTeams;}
-    public int getnLeagueTeams() {return this.nLeagueTeams;}
-    public int getNGamesPlayed() {return this.gamesPlayed;}
-    public String getLeagueName() {return this.LeagueName;}
+    // Constructors
 
-    public void resetLeague() {
-        this.gamesPlayed = 0;
-
-        for (int x1 = 0; x1 < nLeagueTeams; x1++) {
-            Score[x1][0] = league[x1].getTeamName();
-            Score[x1][1] = "0";
-        }
-
-        int [][] MatchesCfg = {
-                {1, 2, 3, 4, 5},
-                {0, 4, 5, 3, 2},
-                {3, 0, 4, 5, 1},
-                {2, 5, 0, 1, 4},
-                {5, 1, 2, 0, 3},
-                {4, 3, 1, 2, 0}
-        };
-
-        for(int i = 0; i < nLeagueTeams; i++) {
-
-            String [] calend = new String[nLeagueTeams-1];
-            String [] results = new String[nLeagueTeams-1];
-            Team t1 = league[i];
-
-            for(int j = 0; j < nLeagueTeams-1; j++) {
-                int iAdv = MatchesCfg[i][j];
-                String adv = league[iAdv].getTeamName();
-                calend[j] = adv;
-                results[j] = "TBD";
-            }
-            t1.createTeamResults(results);
-            t1.createTeamCalendar(calend);
-        }
-    }
-
-    public void changePtsToTeam(String t1, int pts) {
-        for(int i = 0 ; i < nLeagueTeams; i++) {
-            String aux = this.Score[i][0];
-            if(aux.equals(t1)) {
-                int res = Integer.parseInt(this.Score[i][1]) + pts;
-                this.Score[i][1] = String.valueOf(res);
-            }
-        }
-    }
-
-    public void insertTeamInLeague(int pos, Team newTeam) {
-        this.league[pos] = newTeam;
-        newTeam.changeLeagueName(this.leagueName);
-    }
-
-    public void switchTeamsClass(int t1, int t2) {
-        String t1Name = getTeamByPos(t1);
-        String t1Pts = getPtsByPos(t1);
-
-        this.Score[t1][0] = this.Score[t2][0];
-        this.Score[t1][1] = this.Score[t2][1];
-        this.Score[t2][0] = t1Name;
-        this.Score[t2][1] = t1Pts;
-    }
-
-    public void incGamesPlayed() {
-        this.gamesPlayed++;
-    }
-
-    public String[][] getScore() {
-        if(this.Score != null)
-            return this.Score;
-        else
-            return null;
-    }
-
-    public String getPtsByPos(int index) {
-        if(this.Score != null && index < this.Score.length)
-            return this.Score[index][1];
-        else
-            return null;
-    }
-
-    public String getTeamByPos(int index) {
-        if(Score != null)
-            return this.Score[index][0];
-        else
-            return null;
-    }
-
-
-    public Team getTeamByName(String teamName) {
-        for(int i = 0; i < this.nLeagueTeams; i++) {
-            Team aux = this.league[i];
-            String auxName = aux.getTeamName();
-            if (auxName.compareTo(teamName) == 0)
-                return aux;
-        }
-
-        return null;
-    }
-
-    public Team [] getAllLeagueTeams() {
-        if(this.lineUp != null)
-            return this.league;
-
-        return null;
-    }
-
-    public Team searchForTeamInLeague(String team_name) {
-        for(Team aux: league) {
-            if(aux.getTeamName().equals(team_name))
-                return aux;
-        }
-
-        return null;
-    }
-
-    public Player searchForPlayerInLeague(String player_name) {
-        for(Team aux: league) {
-            Player auxP = aux.searchInTeamForPlayer(player_name);
-            if(auxP != null)
-                return auxP;
-        }
-
-        return null;
-    }
-
-    public Team getObjectTeamIndex(int index) {
-        if(this.league[index] != null) {return this.league[index];}
-
-        return null;
-    }
-
-    public int getIndOfTeam(Team t1) {
-        if(t1 != null) {
-            String indTeamName = t1.getTeamName();
-            for (int i = 0; i < nLeagueTeams; i++) {
-                String auxTeamName = getObjectTeamIndex(i).getTeamName();
-
-                if (indTeamName.equals(auxTeamName))
-                    return i;
-            }
-        }
-        return -1;
-    }
-
-    public void createAmateurLeague() {
+    public void createAmateurLeague()
+    {
         String [][] scr = new String[nLeagueTeams][2];
+
         Team [] lnp = new Team [nLeagueTeams];
 
         String [] TeamNames = {"Válega", "Ovarense", "Espinho", "Pardilhó", "Esmoriz", "Paramos"};
@@ -187,9 +51,11 @@ public class League extends Team {
         String [] team6Trainers = {"Ilsinho", "Humberto do Araujo"};
 
         String [][] Score = new String[nLeagueTeams][2];
+
         Team [] league = new Team[nLeagueTeams];
 
-        //public void createTeam(String teamName, String coachName, String [] players, String PhyStaff, String [] trainers, Double TeamBudget)
+        // Teams construction
+
         Team t1 = new Team();
         t1.createTeam(TeamNames[0], coachNames[0], team1Players, team1PhyStaff, team1Trainers, 1, 3000);
         lnp[0] = t1;
@@ -214,9 +80,12 @@ public class League extends Team {
         t6.createTeam(TeamNames[5], coachNames[5], team6Players, team6PhyStaff, team6Trainers,1, 3000);
         lnp[5] = t6;
 
-        for(int i = 0; i < nLeagueTeams; i++) {
-            for(int j = 0; j < 2; j++) {
+        for(int i = 0; i < nLeagueTeams; i++)
+        {
+            for(int j = 0; j < 2; j++)
+            {
                 scr[i][0] = TeamNames[i];
+
                 scr[i][1] = "0";
             }
         }
@@ -227,8 +96,10 @@ public class League extends Team {
         this.LeagueName = "Amateur League";
     }
 
-    public void createSemiProLeague() {
+    public void createSemiProLeague()
+    {
         String [][] scr = new String[nLeagueTeams][2];
+
         Team [] lnp = new Team [nLeagueTeams];
 
         String [] TeamNames = {"Torreira", "Feirense", "São Joanense", "Seixo", "Candal", "Murtosa"};
@@ -257,9 +128,10 @@ public class League extends Team {
         String [] team6Trainers = {"Chris Herd", "Richardson C"};
 
         String [][] Score = new String[nLeagueTeams][2];
+
         Team [] league = new Team[nLeagueTeams];
 
-        //public void createTeam(String teamName, String coachName, String [] players, String PhyStaff, String [] trainers)
+        // Teams construction
         Team t1 = new Team();
         t1.createTeam(TeamNames[0], coachNames[0], team1Players, team1PhyStaff, team1Trainers,2, 3000);
         lnp[0] = t1;
@@ -284,8 +156,10 @@ public class League extends Team {
         t6.createTeam(TeamNames[5], coachNames[5], team6Players, team6PhyStaff, team6Trainers,2, 3000);
         lnp[5] = t6;
 
-        for(int i = 0; i < nLeagueTeams; i++) {
-            for(int j = 0; j < 2; j++) {
+        for(int i = 0; i < nLeagueTeams; i++)
+        {
+            for(int j = 0; j < 2; j++)
+            {
                 scr[i][0] = TeamNames[i];
                 scr[i][1] = "0";
             }
@@ -297,8 +171,10 @@ public class League extends Team {
         this.LeagueName = "Semi Pro League";
     }
 
-    public void createProLeague() {
+    public void createProLeague()
+    {
         String [][] scr = new String[nLeagueTeams][2];
+
         Team [] lnp = new Team [nLeagueTeams];
 
         String [] TeamNames = {"Rio Tinto", "Avanca", "Souto", "Pasteleira", "Lordelo", "Estarreja"};
@@ -329,7 +205,7 @@ public class League extends Team {
         String [][] Score = new String[nLeagueTeams][2];
         Team [] league = new Team[nLeagueTeams];
 
-        //public void createTeam(String teamName, String coachName, String [] players, String PhyStaff, String [] trainers)
+        // Teams construction
         Team t1 = new Team();
         t1.createTeam(TeamNames[0], coachNames[0], team1Players, team1PhyStaff, team1Trainers,3, 9000);
         lnp[0] = t1;
@@ -354,8 +230,10 @@ public class League extends Team {
         t6.createTeam(TeamNames[5], coachNames[5], team6Players, team6PhyStaff, team6Trainers,3, 9000);
         lnp[5] = t6;
 
-        for(int i = 0; i < nLeagueTeams; i++) {
-            for(int j = 0; j < 2; j++) {
+        for(int i = 0; i < nLeagueTeams; i++)
+        {
+            for(int j = 0; j < 2; j++)
+            {
                 scr[i][0] = TeamNames[i];
                 scr[i][1] = "0";
             }
@@ -367,10 +245,239 @@ public class League extends Team {
         this.LeagueName = "Pro League";
     }
 
+    // Getters
+
+    public int getNTeams()
+    {
+        return this.nTeams;
+    }
+
+    public int getnLeagueTeams()
+    {
+        return this.nLeagueTeams;
+    }
+
+    public int getNGamesPlayed()
+    {
+        return this.gamesPlayed;
+    }
+
+    public String getLeagueName()
+    {
+        return this.LeagueName;
+    }
+
+    public String[][] getScore()
+    {
+        if(this.Score != null)
+        {
+            return this.Score;
+        }
+
+        else
+        {
+            return null;
+        }
+    }
+
+    public String getPtsByPos(int index)
+    {
+        if(this.Score != null && index < this.Score.length)
+        {
+            return this.Score[index][1];
+        }
+
+        else
+        {
+            return null;
+        }
+    }
+
+    public String getTeamByPos(int index)
+    {
+        if(Score != null)
+        {
+            return this.Score[index][0];
+        }
+
+        else
+        {
+            return null;
+        }
+    }
+
+    public Team getTeamByName(String teamName)
+    {
+        for(int i = 0; i < this.nLeagueTeams; i++)
+        {
+            Team aux = this.league[i];
+
+            String auxName = aux.getTeamName();
+
+            if (auxName.compareTo(teamName) == 0)
+            {
+                return aux;
+            }
+        }
+
+        return null;
+    }
+
+    public Team [] getAllLeagueTeams()
+    {
+        if(this.lineUp != null)
+        {
+            return this.league;
+        }
+
+        return null;
+    }
+
+    public Team searchForTeamInLeague(String team_name)
+    {
+        for(Team aux: league)
+        {
+            if(aux.getTeamName().equals(team_name))
+            {
+                return aux;
+            }
+        }
+
+        return null;
+    }
+
+    public Player searchForPlayerInLeague(String player_name)
+    {
+        for(Team aux: league)
+        {
+            Player auxP = aux.searchInTeamForPlayer(player_name);
+
+            if(auxP != null)
+            {
+                return auxP;
+            }
+        }
+
+        return null;
+    }
+
+    public Team getObjectTeamIndex(int index)
+    {
+        if(this.league[index] != null)
+        {
+            return this.league[index];
+        }
+
+        return null;
+    }
+
+    public int getIndOfTeam(Team t1)
+    {
+        if(t1 != null)
+        {
+            String indTeamName = t1.getTeamName();
+
+            for (int i = 0; i < nLeagueTeams; i++)
+            {
+                String auxTeamName = getObjectTeamIndex(i).getTeamName();
+
+                if (indTeamName.equals(auxTeamName))
+                {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    // Setters
+
+    public void resetLeague()
+    {
+        this.gamesPlayed = 0;
+
+        for (int x1 = 0; x1 < nLeagueTeams; x1++)
+        {
+            Score[x1][0] = league[x1].getTeamName();
+            Score[x1][1] = "0";
+        }
+
+        int [][] MatchesCfg = {
+                {1, 2, 3, 4, 5},
+                {0, 4, 5, 3, 2},
+                {3, 0, 4, 5, 1},
+                {2, 5, 0, 1, 4},
+                {5, 1, 2, 0, 3},
+                {4, 3, 1, 2, 0}
+        };
+
+        for(int i = 0; i < nLeagueTeams; i++)
+        {
+            String [] calend = new String[nLeagueTeams-1];
+
+            String [] results = new String[nLeagueTeams-1];
+
+            Team t1 = league[i];
+
+            for(int j = 0; j < nLeagueTeams-1; j++)
+            {
+                int iAdv = MatchesCfg[i][j];
+
+                String adv = league[iAdv].getTeamName();
+
+                calend[j] = adv;
+
+                results[j] = "TBD";
+            }
+
+            t1.createTeamResults(results);
+            t1.createTeamCalendar(calend);
+        }
+    }
+
+    public void changePtsToTeam(String t1, int pts)
+    {
+        for(int i = 0 ; i < nLeagueTeams; i++)
+        {
+            String aux = this.Score[i][0];
+
+            if(aux.equals(t1))
+            {
+                int res = Integer.parseInt(this.Score[i][1]) + pts;
+                this.Score[i][1] = String.valueOf(res);
+            }
+        }
+    }
+
+    public void insertTeamInLeague(int pos, Team newTeam)
+    {
+        this.league[pos] = newTeam;
+
+        newTeam.changeLeagueName(this.leagueName);
+    }
+
+    public void switchTeamsClass(int t1, int t2)
+    {
+        String t1Name = getTeamByPos(t1);
+        String t1Pts = getPtsByPos(t1);
+
+        this.Score[t1][0] = this.Score[t2][0];
+        this.Score[t1][1] = this.Score[t2][1];
+
+        this.Score[t2][0] = t1Name;
+        this.Score[t2][1] = t1Pts;
+    }
+
+    public void incGamesPlayed()
+    {
+        this.gamesPlayed++;
+    }
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.leader_board);
     }

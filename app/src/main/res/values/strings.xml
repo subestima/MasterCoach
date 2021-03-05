@@ -35,6 +35,7 @@
     <string name="save">SAVE</string>
     <string name="search">SEARCH</string>
     <string name="finishSim">End</string>
+    <string name="loadGame">LOAD GAME</string>
 
 
 </resources>

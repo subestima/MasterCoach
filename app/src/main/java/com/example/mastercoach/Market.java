@@ -3,10 +3,7 @@ package com.example.mastercoach;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.os.Bundle;
-import android.text.PrecomputedText;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -16,18 +13,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.LinkedList;
 import java.util.List;
 
-public class Market extends MainActivity {
+public class Market extends MainActivity
+{
     private static String searchName;
     private static String searchPosition;
     private static int lowerLimitAge, upperLimitAge;
@@ -295,7 +290,8 @@ public class Market extends MainActivity {
 
         if(trgPrice <= myBudget && !(myClubName.equals(trgClubName)))
         {
-            if(trgClub.getNumberOfPlayers() >= 9) {
+            if(trgClub.getNumberOfPlayers() >= 9)
+            {
                 myClub.transferPlayer(player);
 
                 trgClub.removePlayerFromTeam(player.getPlayerName());
@@ -306,8 +302,10 @@ public class Market extends MainActivity {
                 myClub.decreaseTeamBudget(player.getPlayerClause());
 
                 Intent i = new Intent(Market.this, HomeMenus.class);
+
                 startActivity(i);
             }
+
             else
             {
                 Toast.makeText(getApplicationContext(), "This Team Cant Sell More Players", Toast.LENGTH_SHORT).show();
@@ -465,16 +463,32 @@ public class Market extends MainActivity {
     private boolean checkSearchCriterea(Team.Player player)
     {
         String playerPos = player.getPlayerPos();
-        if(!playerPos.equals(searchPosition))  return false;
+
+        if(!playerPos.equals(searchPosition))
+        {
+            return false;
+        }
 
         int playerAge = player.getPlayerAge();
-        if(playerAge < lowerLimitAge || playerAge > upperLimitAge)  return false;
+
+        if(playerAge < lowerLimitAge || playerAge > upperLimitAge)
+        {
+            return false;
+        }
 
         double playerPrice = player.getPlayerClause();
-        if(playerPrice < lowerLimitPrice || playerPrice > upperLimitPrice) return false;
+
+        if(playerPrice < lowerLimitPrice || playerPrice > upperLimitPrice)
+        {
+            return false;
+        }
 
         double playerOvrll = player.getOverAllPoints();
-        if(playerOvrll < lowerLimitOvrll || playerOvrll > upperLimitOvrll) return false;
+
+        if(playerOvrll < lowerLimitOvrll || playerOvrll > upperLimitOvrll)
+        {
+            return false;
+        }
 
         return true;
     }
@@ -486,6 +500,7 @@ public class Market extends MainActivity {
         TextView bankTV = findViewById(R.id.HeaderMarketTV);
 
         double teamBudget = a.getUserClub().getTeamBudget();
+
         double formatDouble = Math.floor(teamBudget * 100) / 100;
 
         String bankTXT = String.valueOf(formatDouble) + " $";
@@ -494,7 +509,8 @@ public class Market extends MainActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         setMarketLayout();

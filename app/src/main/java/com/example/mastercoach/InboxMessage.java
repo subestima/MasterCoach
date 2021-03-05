@@ -3,11 +3,15 @@ package com.example.mastercoach;
 public class InboxMessage
 {
     //Class data
+
     String author, subject, body;
+
     int mailIndex;
+
     Team interestedTeam;
 
     //Constructor
+
     public InboxMessage(String author, String subject, String body, int mailIndex, Team interestedTeam)
     {
         this.author = author;
@@ -18,9 +22,29 @@ public class InboxMessage
     }
 
     //Getters
-    String getAuthor() { return this.author; }
-    String getSubject() { return this.subject; }
-    String getBody() { return this.body; }
-    int getMailIndex() { return this.mailIndex; }
-    Team getInterestedClub() { return this.interestedTeam; }
+
+    String getAuthor()
+    {
+        return this.author;
+    }
+
+    String getSubject()
+    {
+        return this.subject;
+    }
+
+    String getBody()
+    {
+        return this.body;
+    }
+
+    int getMailIndex()
+    {
+        return this.mailIndex;
+    }
+
+    Team getInterestedClub()
+    {
+        return this.interestedTeam;
+    }
 }

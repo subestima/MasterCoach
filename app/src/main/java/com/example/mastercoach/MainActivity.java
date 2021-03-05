@@ -15,7 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity
 {
     public static Game a;
+
     public static int createdGame = 0;
+
+    public static int loadingGame = 0;
 
     public static DBHelper DB;
 
@@ -31,22 +34,30 @@ public class MainActivity extends AppCompatActivity
 
         if(cursor.getCount() > 0)
         {
-            Toast t = Toast.makeText(MainActivity.this, "at least one created profile", Toast.LENGTH_LONG);
-            t.show();
-            Log.d("db", "at least one user profile");
+            Button loadGameBttn = findViewById(R.id.loadGame);
+
+            loadGameBttn.setVisibility(View.VISIBLE);
+
+            loadGameBttn.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    loadingGame = 1;
+
+                    Intent i = new Intent(MainActivity.this, Game.class);
+
+                    startActivity(i);
+                }
+            });
         }
 
-        else
-        {
-            Toast t = Toast.makeText(MainActivity.this, "0 created profile", Toast.LENGTH_LONG);
-            t.show();
-            Log.d("db", "no user profiles");
-        }
 
         if(createdGame == 0)
         {
             a = new Game();
+
             a.createGame();
+
             createdGame = 1;
         }
 
@@ -56,6 +67,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent i = new Intent(MainActivity.this, Game.class);
+
                 startActivity(i);
             }
         });

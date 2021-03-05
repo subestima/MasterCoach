@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +16,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-// Java Imports
-import androidx.annotation.IdRes;
-
+// Java imports
 import java.util.List;
 
-public class HomeMenus extends com.example.mastercoach.MainActivity
+public class HomeMenus extends MainActivity
 {
 
     public void showHomeInfo()
@@ -78,7 +75,8 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
         tr.addView(tv);
         tl.addView(tr);
 
-        for(InboxMessage msg: Inbox) {
+        for(InboxMessage msg: Inbox)
+        {
 
             TableRow tr1 = new TableRow(this);
             TableRow tr2 = new TableRow(this);
@@ -147,7 +145,7 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(com.example.mastercoach.HomeMenus.this, HomeMenus.class);
+                Intent i = new Intent(HomeMenus.this, HomeMenus.class);
                 startActivity(i);
             }
         });
@@ -174,7 +172,7 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(com.example.mastercoach.HomeMenus.this, HomeMenus.class);
+                Intent i = new Intent(HomeMenus.this, HomeMenus.class);
                 startActivity(i);
             }
         });
@@ -204,7 +202,8 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
 
     }
 
-    public void showHeaderInfo(Team trg) {
+    public void showHeaderInfo(Team trg)
+    {
         LinearLayout prpLL = findViewById(R.id.msgBodyLL);
         String myClubName = trg.getTeamName();
         ImageView myClubIcon = new ImageView(this);
@@ -289,7 +288,7 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
         LinearLayout mainLL = findViewById(R.id.msgBodyLL);
 
         TextView roosterSeparator = new TextView(this);
-        String  sep = ""+System.getProperty("line.separator")+""+System.getProperty("line.separator");
+        String sep = ""+System.getProperty("line.separator")+""+System.getProperty("line.separator");
         roosterSeparator.setText(sep);
         mainLL.addView(roosterSeparator);
 
@@ -303,13 +302,15 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
         substitutesLineUpTable.addView(hSubstitutesLU);
 
 
-        for(Team.Player aux: allPlayers) {
+        for(Team.Player aux: allPlayers)
+        {
             String p1Name = aux.getPlayerName();
 
             int OA_pts = (int)aux.getOverAllPoints();
+
             String p2Name = "";
 
-            String body = aux.getPlayerPos()+" "+p1Name+" "+OA_pts+"'";
+            String body = aux.getPlayerPos() + " " + p1Name + " " + OA_pts + "'";
 
             TableRow tr = new TableRow(this);
 
@@ -355,14 +356,18 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
         startActivity(i);
     }
 
-    public void showInterestedClubs(InboxMessage msg) {
+    public void showInterestedClubs(InboxMessage msg)
+    {
         Team trg = msg.getInterestedClub();
 
-        if(trg != null) {
+        if(trg != null)
+        {
             LinearLayout proposalL = findViewById(R.id.msgBodyLL);
 
             String body = "";
-            if(a.getUserLeague().getLeagueName().equals(a.getAmateurLeague().getLeagueName())) {
+
+            if(a.getUserLeague().getLeagueName().equals(a.getAmateurLeague().getLeagueName()))
+            {
                 body = "Hello " + a.getUserName() + "!" + System.getProperty("line.separator") + "" + System.getProperty("line.separator");
                 body += "Im the president of " + trg.getTeamName() + ", and i want to show my interest in your services. ";
                 body += "some may say your results are not enough proff but i believe in your potencial as a coach. Hope to ear a anwser from you soon!" + System.getProperty("line.separator");
@@ -371,7 +376,8 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
                 body += "President of " + trg.getTeamName() + "." + "" + System.getProperty("line.separator") + "" + System.getProperty("line.separator");
             }
 
-            if(a.getUserLeague().getLeagueName().equals(a.getSemiProLeague().getLeagueName()) || a.getUserLeague().getLeagueName().equals(a.getProLeague().getLeagueName())) {
+            if(a.getUserLeague().getLeagueName().equals(a.getSemiProLeague().getLeagueName()) || a.getUserLeague().getLeagueName().equals(a.getProLeague().getLeagueName()))
+            {
                 body = "Hello " + a.getUserName() + "!" + System.getProperty("line.separator") + "" + System.getProperty("line.separator");
                 body += "Im the president of " + trg.getTeamName() + ", and i want to show my interest in your services. ";
                 body += "The fact that you managed to get this far in such short time is really amazing, all the great clubs talk about your capacities as a coach and as a president of this club i allways want the best. Hope to ear a anwser from you soon!" + System.getProperty("line.separator");
@@ -390,21 +396,19 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
         }
     }
 
-    public void showNextGames() {
+    public void showNextGames()
+    {
         Team myClub = a.getUserClub();
+
         String [] calend = myClub.getCalendar();
+
         String [] res = a.getMyClubResults();
 
-        /*
-        * "Válega", "Ovarense", "Espinho", "Pardilhó", "Esmoriz", "Paramos"
-        * "Torreira", "Feirense", "São Joanense", "Seixo", "Candal", "Murtosa"
-        * "Rio Tinto", "Avanca", "Souto", "Pasteleira", "Lordelo", "Estarreja"
-        *
-        * */
-
         LinearLayout mainLinearLayout = findViewById(R.id.showNextGamesLayout);
+
         int  ind_games = 0;
-        for(String adv: calend) {
+        for(String adv: calend)
+        {
             ImageView advIcon = new ImageView(this);
 
             LinearLayout nextGamesLL = new LinearLayout(this);
@@ -470,44 +474,54 @@ public class HomeMenus extends com.example.mastercoach.MainActivity
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.home_window);
+
         showHomeInfo();
         showInbox();
 
         final Button goLBoard = findViewById(R.id.goRankings);
-        goLBoard.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                Intent i1 = new Intent(com.example.mastercoach.HomeMenus.this, LeaderBoard.class);
+        goLBoard.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent i1 = new Intent(HomeMenus.this, LeaderBoard.class);
                 startActivity(i1);
             }
         });
 
 
         final Button goTMTeam = findViewById(R.id.goToMyTeam);
-        goTMTeam.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                Intent i3 = new Intent(com.example.mastercoach.HomeMenus.this, MyClub.class);
+        goTMTeam.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent i3 = new Intent(HomeMenus.this, MyClub.class);
                 startActivity(i3);
             }
         });
 
 
         final Button goTMarket = findViewById(R.id.goToMarket);
-        goTMarket.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                Intent i2 = new Intent(com.example.mastercoach.HomeMenus.this, com.example.mastercoach.Market.class);
+        goTMarket.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent i2 = new Intent(HomeMenus.this, Market.class);
                 startActivity(i2);
             }
         });
 
 
         final Button playGame = findViewById(R.id.goToNextGame);
-        playGame.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                Intent i4 = new Intent(com.example.mastercoach.HomeMenus.this, com.example.mastercoach.Game.class);
+        playGame.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Intent i4 = new Intent(HomeMenus.this, Game.class);
                 startActivity(i4);
             }
         });

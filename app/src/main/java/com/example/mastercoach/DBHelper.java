@@ -18,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase DB)
     {
-        DB.execSQL("create Table UserDetails(name TEXT primary key, club TEXT, age TEXT, dateOfCreation TXT, gamesPlayed INT)");
+        DB.execSQL("create Table UserDetails(name TEXT primary key, club TEXT, age TEXT, gamesPlayed INT)");
 
         DB.execSQL("create Table CalendarDetails(adversary TEXT primary key, result TEXT)");
 
@@ -70,7 +70,7 @@ public class DBHelper extends SQLiteOpenHelper
     }
 
     // UserDetails Table Methods
-    public Boolean insertUserData(String name, String club, String age, String dateOfCreation)
+    public Boolean insertUserData(String name, String club, String age, int games_played)
     {
         SQLiteDatabase DB =  this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -78,7 +78,7 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put("name", name);
         contentValues.put("club", club);
         contentValues.put("age", age);
-        contentValues.put("dateOfCreation", dateOfCreation);
+        contentValues.put("gamesPlayed", games_played);
 
         long result = DB.insert("UserDetails", null, contentValues);
 

@@ -76,7 +76,7 @@ public class Simulation extends Activity
                         if(!iterationScores.isEmpty() && !iterationScore.equals("-1"))
                         {
                             scoreDisplay.setText(iterationScores.peek());
-                            Log.d("score peek()", "iteration score peek() = "+iterationScores.peek());
+                            Log.d("score peek()", "iteration score peek() = " + iterationScores.peek());
                         }
 
                         timeStamps.remove();
@@ -134,8 +134,10 @@ public class Simulation extends Activity
             ++start;
         }
 
-        for(int i = start; i < fullName.length(); i++) {
-            if(fullName.charAt(i) == ' '){
+        for(int i = start; i < fullName.length(); i++)
+        {
+            if(fullName.charAt(i) == ' ')
+            {
                 break;
             }
 
@@ -190,13 +192,13 @@ public class Simulation extends Activity
 
     private void setVisitorStartingEleven(Team t)
     {
-        TextView gkTV =     findViewById(R.id.awayTeamGKTV);
+        TextView gkTV  =    findViewById(R.id.awayTeamGKTV);
         TextView cb1TV =    findViewById(R.id.awayTeamCB1TV);
         TextView cb2TV =    findViewById(R.id.awayTeamCB2TV);
         TextView cb3TV =    findViewById(R.id.awayTeamCB3TV);
         TextView mf1TV =    findViewById(R.id.awayTeamMF1TV);
         TextView mf2TV =    findViewById(R.id.awayTeamMF2TV);
-        TextView cfTV =     findViewById(R.id.awayTeamCFTV);
+        TextView cfTV  =    findViewById(R.id.awayTeamCFTV);
 
         Team.Player [] startLineUp = t.getStartLineUp();
 
@@ -251,38 +253,41 @@ public class Simulation extends Activity
         if(TeamName.equals("Estarreja"))    {TeamLogo.setImageResource(R.mipmap.estarrejaicon_foreground);}
     }
 
-    private int minute = 1;
+    private static int minute = 1;
+
     private void calculateGameSimulation()
     {
         Team myClub = a.getUserClub();
         String myClubName = myClub.getTeamName();
 
-        com.example.mastercoach.League l = a.getUserLeague();
+        League l = a.getUserLeague();
         int indGames = l.getNGamesPlayed();
         int nJourneys = l.getnLeagueTeams()-1;
 
-        if(indGames < nJourneys) {
-
+        if(indGames < nJourneys)
+        {
             int myClubScore = 0, advScore = 0;
 
             String[] cal = myClub.getCalendar();
+
             String advName = cal[indGames];
 
             Team adv = l.getTeamByName(advName);
 
             Team teamWithBall = myClub;
+
             Team teamDeffending = adv;
 
-            while(minute <= 90) {
+            while(minute <= 90)
+            {
 
-                // If returned [0 -> no change on teamWithball, 1 - teamDeffending recovered ball, 2 - teamWithBall scored]
+                // ( attacking == 0 ) -> no change on team with ball or ( attacking == 1 ) -> team defending recovered ball or ( attacking == 2 ) -> team with ball scored
                 int res = atacking(teamWithBall, teamDeffending);
 
                 if(minute >= 90) break;
 
-                // Change score, respective variables and teamWithBall and teamDeffending
-                if (res == 2) {
-
+                if (res == 2)
+                {
                     String msg = teamWithBall.getTeamName()+" scored a goal !";
 
                     timeStamps.add(String.valueOf(minute));
@@ -291,47 +296,70 @@ public class Simulation extends Activity
 
                     minute += 4;
 
-                    if (teamWithBall.getTeamName().equals(myClubName)) {
+                    if (teamWithBall.getTeamName().equals(myClubName))
+                    {
                         myClubScore++;
+
                         teamWithBall = adv;
+
                         teamDeffending = myClub;
-                    } else {
+                    }
+
+                    else
+                    {
                         advScore++;
+
                         teamWithBall = myClub;
+
                         teamDeffending = adv;
                     }
 
                     String score = myClubScore + " - " + advScore;
+
                     iterationScores.add(score);
                 }
 
-                // change  teamWithBall and teamDeffending
-                if (res == 1) {
+                if (res == 1)
+                {
                     stoppedAtacked(teamWithBall, teamDeffending);
 
-                    if (teamWithBall.getTeamName().equals(myClubName)) {
+                    if (teamWithBall.getTeamName().equals(myClubName))
+                    {
                         teamDeffending = myClub;
+
                         teamWithBall = adv;
-                    } else {
+                    }
+
+                    else
+                    {
                         teamDeffending = adv;
+
                         teamWithBall = myClub;
                     }
                 }
 
-                if (res == 3) {
+                if (res == 3)
+                {
                     penaltySaved(teamWithBall, teamDeffending);
 
-                    if (teamWithBall.getTeamName().equals(myClubName)) {
+                    if (teamWithBall.getTeamName().equals(myClubName))
+                    {
                         teamDeffending = myClub;
+
                         teamWithBall = adv;
-                    } else {
+                    }
+
+                    else
+                    {
                         teamDeffending = adv;
+
                         teamWithBall = myClub;
                     }
                 }
             }
 
-            if (myClubScore > advScore) {
+            if (myClubScore > advScore)
+            {
                 l.changePtsToTeam(myClubName, 3);
 
                 if (a.getUserLeague().getLeagueName().equals("Pro League"))
@@ -351,10 +379,12 @@ public class Simulation extends Activity
             }
 
             if (myClubScore < advScore)
+            {
                 l.changePtsToTeam(advName, 3);
+            }
 
-            if (myClubScore == advScore) {
-
+            if (myClubScore == advScore)
+            {
                 if (a.getUserLeague().getLeagueName().equals("Pro League"))
                 {
                     myClub.getMoneyFromProMatch("draw");
@@ -375,6 +405,7 @@ public class Simulation extends Activity
             }
 
             String res = myClubScore + " - " + advScore;
+
             a.setMyTeamResult(res, indGames);
         }
     }
@@ -383,7 +414,7 @@ public class Simulation extends Activity
     {
         if(minute >= 90) return -3;
 
-        String msg = ""+teamWithBall.getTeamName()+" is in possetion of ball";
+        String msg = "" + teamWithBall.getTeamName() + " is in possetion of ball";
 
         timeStamps.add(String.valueOf(minute));
 
@@ -394,6 +425,7 @@ public class Simulation extends Activity
         minute += 3;
 
         Random rand = new Random();
+
         double team1FieldLuck = rand.nextDouble();
         double team2FieldLuck = rand.nextDouble();
 
@@ -412,7 +444,7 @@ public class Simulation extends Activity
     {
         if(minute >= 90) return -3;
 
-        String msg = ""+teamWithBall.getTeamName()+" getting close to finishing area";
+        String msg = "" + teamWithBall.getTeamName() + " getting close to finishing area";
 
         timeStamps.add(String.valueOf(minute));
 
@@ -423,7 +455,9 @@ public class Simulation extends Activity
         minute += 3;
 
         Random rand = new Random();
+
         double deffensePoints = teamDeffending.getDeffensePoints();
+
         double probDeffenseMistakes = (rand.nextDouble()) * deffensePoints;
 
         if(probDeffenseMistakes <= 18)
@@ -473,7 +507,9 @@ public class Simulation extends Activity
         double KeeperLuck = teamDeffending.getKeeperPoints() * team2FieldLuck;
 
         if(StrikerLuck >= KeeperLuck)
+        {
             return 2;
+        }
 
         return 3;
     }
@@ -572,8 +608,8 @@ public class Simulation extends Activity
     }
 
     @Override
-    public void onPause() {
-
+    public void onPause()
+    {
         super.onPause();
 
         timeHandler.removeCallbacks(timeRunnable);

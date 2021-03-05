@@ -33,7 +33,7 @@
         android:id="@+id/createdProfilesRL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".5"
+        android:layout_weight=".7"
         >
 
     </RelativeLayout>
@@ -45,6 +45,21 @@
         android:layout_weight=".9"
         android:layout_margin="10sp"
         >
+
+        <Button
+            android:id="@+id/loadGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/loadGame"
+            android:background="#3CB371"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_above="@id/startGame"
+            android:layout_marginBottom="10sp"
+            android:visibility="invisible"
+            />
 
         <Button
             android:id="@+id/startGame"

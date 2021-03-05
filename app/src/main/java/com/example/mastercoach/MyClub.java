@@ -3,7 +3,6 @@ package com.example.mastercoach;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -20,6 +19,7 @@ import android.widget.Toast;
 public class MyClub extends MainActivity
 {
     private static Team.Player InPlayer, OutPlayer;
+
     private TextView InPlayerTV, OutPlayerTV;
 
     public void userRequestToChangeTeam()
@@ -27,8 +27,8 @@ public class MyClub extends MainActivity
         Team myClub = a.getUserClub();
 
         Toast warningMissingPlayer = Toast.makeText(getApplicationContext(), "Missing selected player", Toast.LENGTH_SHORT);
-        Toast warningNotSamePos = Toast.makeText(getApplicationContext(), "Only same position for viable sub", Toast.LENGTH_SHORT);
 
+        Toast warningNotSamePos = Toast.makeText(getApplicationContext(), "Only same position for viable sub", Toast.LENGTH_SHORT);
 
         if (InPlayer != null && OutPlayer != null)
         {
@@ -78,17 +78,21 @@ public class MyClub extends MainActivity
         showBench();
     }
 
-    public String parsePlayerName(String fullName) {
+    public String parsePlayerName(String fullName)
+    {
         StringBuilder displayName = new StringBuilder();
 
         int start = 0;
+
         while(fullName.charAt(start) == ' ')
         {
             ++start;
         }
 
-        for(int i = start; i < fullName.length(); i++) {
-            if(fullName.charAt(i) == ' '){
+        for(int i = start; i < fullName.length(); i++)
+        {
+            if(fullName.charAt(i) == ' ')
+            {
                 break;
             }
 

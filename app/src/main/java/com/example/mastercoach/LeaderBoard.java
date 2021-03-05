@@ -13,7 +13,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class LeaderBoard extends com.example.mastercoach.MainActivity {
+public class LeaderBoard extends MainActivity {
     public void showAmateurLeaderBoard() {
         TextView hdr = findViewById(R.id.hdrAmateurLB);
         hdr.setText("AMATEUR LEAGUE");
@@ -26,7 +26,7 @@ public class LeaderBoard extends com.example.mastercoach.MainActivity {
 
         LinearLayout mainLayout = findViewById(R.id.showAmateurLBLayout);
 
-        com.example.mastercoach.League auxL = a.getAmateurLeague();
+        League auxL = a.getAmateurLeague();
 
         for(int i = 0; i < nLeagueTeams; i++) {
 
@@ -102,7 +102,7 @@ public class LeaderBoard extends com.example.mastercoach.MainActivity {
 
         LinearLayout mainLayout = findViewById(R.id.showSemiProLBLayout);
 
-        com.example.mastercoach.League auxL = a.getSemiProLeague();
+        League auxL = a.getSemiProLeague();
 
         for(int i = 0; i < nLeagueTeams; i++) {
 
@@ -178,7 +178,7 @@ public class LeaderBoard extends com.example.mastercoach.MainActivity {
 
         LinearLayout mainLayout = findViewById(R.id.showProLBLayout);
 
-        com.example.mastercoach.League auxL = a.getProLeague();
+        League auxL = a.getProLeague();
 
         for(int i = 0; i < nLeagueTeams; i++) {
 
